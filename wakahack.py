@@ -6,17 +6,17 @@ import datetime
 
 def matchProject(project):
     if args.search != None:
-        if args.s.lower() in project['name'].lower():
+        if args.search.lower() in project['name'].lower():
             projects.append({'name': project['name'], 'time': project['grand_total']['total_seconds']})
             return True
         else:
             return False
 
     if args.project != None:
-        return args.p == project['name']
+        return args.project == project['name']
 
     if args.regex != None:
-        if re.match(args.r, project['name']):
+        if re.match(args.regex, project['name']):
             projects.append({'name': project['name'], 'time': project['grand_total']['total_seconds']})
             return True
         else:
